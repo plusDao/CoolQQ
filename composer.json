@@ -1,0 +1,13 @@
+{
+    "name": "heinlee/cool-qq",
+    "description": "yii2-coolq-qq 酷q插件ph php对接",
+    "type": "library",
+    "require": {
+    },
+    "authors": [
+        {
+            "name": "HeinLee",
+            "email": "heretreeli@163.com"
+        }
+    ]
+}
