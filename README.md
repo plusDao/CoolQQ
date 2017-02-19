@@ -1,5 +1,7 @@
 # CoolQQ
 
+[php, 酷q, 发送qq消息]
+
 coolq插件php对接的封装, 实现php发送qq消息
 
 ## requrie
@@ -9,3 +11,4 @@ coolq插件php对接的封装, 实现php发送qq消息
 ## 使用说明
 coolq(酷q)
 ![](https://ws1.sinaimg.cn/large/8c91ffabgy1fcvradj6quj20gu0cu3zi)
+![enter image description here](https://ws1.sinaimg.cn/large/8c91ffabgy1fcvradj6quj20gu0cu3zi)
