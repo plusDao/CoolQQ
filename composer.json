@@ -1,8 +1,16 @@
 {
     "name": "hiilee/cool-qq",
-    "description": "yii2-coolq-qq 酷q插件ph php对接",
+    "description": "利用coolq(酷Q)实现php发送qq消息",
     "type": "library",
+    "keywords": [
+        "php",
+        "coolq",
+        "酷q",
+        "qq消息"
+    ],
+    "homepage": "https://github.com/HiiLee/CoolQQ",
     "require": {
+        "php": ">=5.4.0"
     },
     "autoload": {
         "psr-4": {
