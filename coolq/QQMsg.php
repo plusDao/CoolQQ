@@ -11,17 +11,21 @@
 
 namespace hiilee\coolq;
 
-
+/**
+ * Class QQMsg
+ * 要发送的qq消息
+ * @package hiilee\coolq
+ */
 class QQMsg extends Msg
 {
     /**
      * 发送消息的类型(私聊,群,讨论组);与zxzjb中类型常量一致
      */
-    const SEND_MSG_TYPE_PRIVATE = '0';
-    const SEND_MSG_TYPE_GROUP = '1';
-    const SEND_MSG_TYPE_DISCUSS = '2';
+    const MSG_TYPE_PRIVATE = '0';
+    const MSG_TYPE_GROUP = '1';
+    const MSG_TYPE_DISCUSS = '2';
 
-    public $type = self::SEND_MSG_TYPE_PRIVATE;
+    public $type = self::MSG_TYPE_PRIVATE;
 
     /**
      * 判断是否为有效消息
