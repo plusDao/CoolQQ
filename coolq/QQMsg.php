@@ -12,7 +12,7 @@
 namespace hiilee\coolq;
 
 
-class CoolQMsg
+class QQMsg extends Msg
 {
     /**
      * 发送消息的类型(私聊,群,讨论组);与zxzjb中类型常量一致
@@ -21,12 +21,7 @@ class CoolQMsg
     const SEND_MSG_TYPE_GROUP = '1';
     const SEND_MSG_TYPE_DISCUSS = '2';
 
-    /** @var string qq号:群号,个人号,讨论组号 */
-    public $qqNO;
-    /** @var array 消息体 */
-    public $msg = [];
-    /** @var string 发送消息的类型:私聊,群聊,讨论组 */
-    public $sendType = self::SEND_MSG_TYPE_PRIVATE;
+    public $type = self::SEND_MSG_TYPE_PRIVATE;
 
     /**
      * 判断是否为有效消息
@@ -34,7 +29,7 @@ class CoolQMsg
      */
     public function isInvalidMsg()
     {
-        if (empty($this->qqNO) && empty($this->sendType) && ($this->msg === [] || $this->msg === '')) {
+        if (empty($this->qqNO) && empty($this->type) && ($this->msg === [] || $this->msg === '')) {
             return false;
         } else {
             return true;
