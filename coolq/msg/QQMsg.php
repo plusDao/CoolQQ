@@ -9,7 +9,7 @@
  * @author hiilee <heretreeli@163.com>
  */
 
-namespace hiilee\coolq;
+namespace hiilee\coolq\msg;
 
 /**
  * Class QQMsg
@@ -33,7 +33,7 @@ class QQMsg extends Msg
      */
     public function isInvalidMsg()
     {
-        if (empty($this->qqNO) && empty($this->type) && ($this->msg === [] || $this->msg === '')) {
+        if (empty($this->qqNo) && empty($this->type) && ($this->msg === [] || $this->msg === '')) {
             return false;
         } else {
             return true;

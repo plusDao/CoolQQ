@@ -10,7 +10,7 @@
  * @author Hein Lee <heretreeli@gmail.com>
  */
 
-namespace hiilee\coolq;
+namespace hiilee\coolq\msg;
 
 
 abstract class Msg

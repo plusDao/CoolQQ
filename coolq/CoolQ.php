@@ -2,6 +2,7 @@
 namespace hiilee\coolq;
 
 use hiilee\coolq\hstb\WebSocketClient;
+use hiilee\coolq\msg\QQMsg;
 
 /**
  * Created by PhpStorm.
@@ -836,10 +837,10 @@ class CoolQ
 
     /**
      * 发送qq消息
-     * @param CoolQMsg $msgObj
+     * @param QQMsg $msgObj
      * @return mixed
      */
-    public static function sendQqMsg(CoolQMsg $msgObj)
+    public static function sendQqMsg(QQMsg $msgObj)
     {
         if (!$msgObj->isInvalidMsg()) {
             throw new \Exception('消息对象不合法');
@@ -851,15 +852,15 @@ class CoolQ
         }
 
         $cqPlatForm = self::getCoolQ();
-        switch ($msgObj->sendType) {
-            case CoolQMsg::SEND_MSG_TYPE_GROUP:
-                $res = $cqPlatForm->sendGroupMsg($msgObj->qqNO, $msg);
+        switch ($msgObj->type) {
+            case QQMsg::MSG_TYPE_GROUP:
+                $res = $cqPlatForm->sendGroupMsg($msgObj->qqNo, $msg);
                 break;
-            case CoolQMsg::SEND_MSG_TYPE_DISCUSS:
-                $res = $cqPlatForm->sendDiscussMsg($msgObj->qqNO, $msg);
+            case QQMsg::MSG_TYPE_DISCUSS:
+                $res = $cqPlatForm->sendDiscussMsg($msgObj->qqNo, $msg);
                 break;
             default:
-                $res = $cqPlatForm->sendPrivateMsg($msgObj->qqNO, $msg);
+                $res = $cqPlatForm->sendPrivateMsg($msgObj->qqNo, $msg);
         }
         unset($cqPlatForm);
         return $res;
