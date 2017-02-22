@@ -5,9 +5,7 @@
  * ----------------------------------------------
  * This is not a free software, without any authorization is not allowed to use and spread.
  * ==============================================
- * @copyright Copyright (c) 2017 重庆路威科技发展有限公司
- * @link http://www.igong.com
- * @author Hein Lee <heretreeli@gmail.com>
+ * @author HiiLee <heretreeli@163.com>
  */
 
 namespace hiilee\coolq\msg;
