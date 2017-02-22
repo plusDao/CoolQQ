@@ -15,13 +15,14 @@ coolq(酷q)
 
 ```php
 //发送消息前需获取coolq实列;实列为私有Coolq静态成员
-CoolQ::getCoolQ('192.168.1.30', 19730);
+CoolQ::getCoolQ('192.168.137.217', 19739);
 
 //常用功能
-$msg = new CoolQMsg();//实例化消息对象
-$msg->qqNO = '1624648313';//讨论组号
-$msg->sendType = CoolQMsg::SEND_MSG_TYPE_DISCUSS;//发送消息类型为讨论组
-$msg->msg = 'fighting';
+$msg = new QQMsg();
+//讨论组qqtask
+$msg->qqNo = '1624648313';//讨论组号
+$msg->type = QQMsg::MSG_TYPE_DISCUSS;//发送消息类型为讨论组
+$msg->msg = '现在北京时间: ' . date('Y-m-d H:i:s');
 CoolQ::sendQqMsg($msg);
 
 //多条内容拼接为一条消息,最终qq消息内容以换行符分隔
@@ -35,5 +36,5 @@ $msg->msg = [
     CoolQ::sendAt('123321123'),//@某群成员,填写qq号
     '老板, 今天开会不',
 ];
-CoolQ::sendQqMsg($msg);
+//CoolQ::sendQqMsg($msg);
 ```
