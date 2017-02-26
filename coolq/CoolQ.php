@@ -846,7 +846,7 @@ class CoolQ
         if (!$rawData) {
             return false;
         }
-        return json_decode(urldecode($rawData), 1);
+        return json_decode(rawurldecode($rawData), 1);
     }
 
     /**
