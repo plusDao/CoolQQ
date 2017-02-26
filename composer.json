@@ -22,5 +22,7 @@
             "name": "HiiLee",
             "email": "heretreeli@163.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
