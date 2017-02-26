@@ -2,6 +2,7 @@
 namespace hiilee\coolq;
 
 use hiilee\coolq\hstb\WebSocketClient;
+use hiilee\coolq\msg\CoolQMsg;
 use hiilee\coolq\msg\QQMsg;
 
 /**
@@ -833,6 +834,32 @@ class CoolQ
         $Json = json_encode($array);
         $Get = $this->SendData($Json);
         return $Get;//返回带有数据的Json文本
+    }
+
+    /**
+     * 获取POST数据
+     * @return bool|mixed
+     */
+    public static function getPostData()
+    {
+        $rawData = file_get_contents('php://input');
+        if (!$rawData) {
+            return false;
+        }
+        return json_decode(urldecode($rawData), 1);
+    }
+
+    /**
+     * @return bool|CoolQMsg
+     */
+    public static function getCoolQMsg()
+    {
+        $data = self::getPostData();
+        if ($data) {
+            return new CoolQMsg($data);
+        } else {
+            return false;
+        }
     }
 
     /**
