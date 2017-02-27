@@ -39,7 +39,7 @@ class CoolQMsg extends Msg
         $this->qqNo = (string)$rec['QQ'];
         $this->msg = urldecode($rec['Msg']);
         if (isset($rec['Group']) || isset($rec['Discuss'])) {
-            $this->groupNo = $rec['Group'] ?: $rec['Discuss'];
+            $this->groupNo = @$rec['Group'] ?: $rec['Discuss'];
         }
     }
 }
