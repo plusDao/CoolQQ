@@ -27,10 +27,13 @@ class CoolQMsg extends Msg
     const MSG_TYPE_DISCUSS = '4';
     /** @var string 群号或讨论组号 */
     public $groupNo;
+    /** @var int 创建时间 */
+    public $createTime;
 
     public function __construct(array $rec)
     {
         $this->setMsg($rec);
+        $this->createTime = time();
     }
 
     public function setMsg(array $rec)
