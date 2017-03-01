@@ -306,7 +306,8 @@ class CoolQ
         $Json = json_encode($array);
         $Get = $this->SendData($Json);
         $array = json_decode($Get);
-        return $array->{'Status'};
+        //todo 返回可能是非json;
+        return @$array->{'Status'};
     }
 
     /**
@@ -325,7 +326,7 @@ class CoolQ
         $Json = json_encode($array);
         $Get = $this->SendData($Json);
         $array = json_decode($Get);
-        return $array->{'Status'};
+        return @$array->{'Status'};
     }
 
     /**
@@ -344,7 +345,7 @@ class CoolQ
         $Json = json_encode($array);
         $Get = $this->SendData($Json);
         $array = json_decode($Get);
-        return $array->{'Status'};
+        return @$array->{'Status'};
     }
 
     /**
