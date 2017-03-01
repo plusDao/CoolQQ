@@ -880,6 +880,9 @@ class CoolQ
 
         $cqPlatForm = self::getCoolQ();
         switch ($msgObj->type) {
+            case QQMsg::MSG_TYPE_PRIVATE:
+                $res = $cqPlatForm->sendPrivateMsg($msgObj->qqNo, $msg);
+                break;
             case QQMsg::MSG_TYPE_GROUP:
                 $res = $cqPlatForm->sendGroupMsg($msgObj->qqNo, $msg);
                 break;
