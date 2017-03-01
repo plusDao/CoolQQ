@@ -5,9 +5,7 @@
  * ----------------------------------------------
  * This is not a free software, without any authorization is not allowed to use and spread.
  * ==============================================
- * @copyright Copyright (c) 2017 重庆路威科技发展有限公司
- * @link http://www.igong.com
- * @author Hein Lee <heretreeli@gmail.com>
+ * @author HiiLee <heretreeli@gmail.com>
  */
 
 namespace hiilee\coolq\msg;
@@ -27,8 +25,6 @@ class CoolQMsg extends Msg
     const MSG_TYPE_DISCUSS = '4';
     /** @var string 群号或讨论组号 */
     public $groupNo;
-    /** @var int 创建时间 */
-    public $createTime;
 
     public function __construct(array $rec)
     {

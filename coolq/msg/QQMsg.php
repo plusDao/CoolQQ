@@ -5,7 +5,6 @@
  * ----------------------------------------------
  * This is not a free software, without any authorization is not allowed to use and spread.
  * ==============================================
- * @link http://www.igong.com
  * @author hiilee <heretreeli@163.com>
  */
 
@@ -19,13 +18,18 @@ namespace hiilee\coolq\msg;
 class QQMsg extends Msg
 {
     /**
-     * 发送消息的类型(私聊,群,讨论组);与zxzjb中类型常量一致
+     * 发送消息的类型(私聊,群,讨论组)
      */
-    const MSG_TYPE_PRIVATE = '0';
-    const MSG_TYPE_GROUP = '1';
-    const MSG_TYPE_DISCUSS = '2';
+    const MSG_TYPE_PRIVATE = '1';
+    const MSG_TYPE_GROUP = '2';
+    const MSG_TYPE_DISCUSS = '3';
 
     public $type = self::MSG_TYPE_PRIVATE;
+
+    public function __construct()
+    {
+        $this->createTime = time();
+    }
 
     /**
      * 判断是否为有效消息

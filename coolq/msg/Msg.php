@@ -19,4 +19,6 @@ abstract class Msg
     public $msg = [];
     /** @var string 消息类型*/
     public $type;
+    /** @var int 创建时间 */
+    public $createTime;
 }
