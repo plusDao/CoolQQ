@@ -4,6 +4,7 @@ namespace hiilee\coolq;
 use hiilee\coolq\hstb\WebSocketClient;
 use hiilee\coolq\msg\CoolQMsg;
 use hiilee\coolq\msg\QQMsg;
+use hiilee\coolq\util\CqCode;
 
 /**
  * Created by PhpStorm.
@@ -895,5 +896,40 @@ class CoolQ
         }
         unset($cqPlatForm);
         return $res;
+    }
+
+    /**
+     * 是否含有酷Q的CQ码
+     * @param $str
+     * @return bool
+     */
+    public static function hasCqCode($str)
+    {
+        if (preg_match_all(CqCode::CQ_PATTERN, $str)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 获取消息中CQ码
+     * @param $str
+     * @return array|bool
+     */
+    public static function getCqCode($str)
+    {
+        if (preg_match_all(CqCode::CQ_PATTERN, $str, $matches)) {
+            $cqCodeType = $matches[1];
+            $cqValue = $matches[2];
+            $res = [];
+            foreach ($cqCodeType as $i => $item) {
+                $cqCode = new CqCode();
+                $cqCode->type = $item;
+                $cqCode->value = $cqValue[$i];
+                $res[] = $cqCode;
+            }
+            return $res;
+        }
+        return false;
     }
 }
