@@ -5,9 +5,7 @@
  * ----------------------------------------------
  * This is not a free software, without any authorization is not allowed to use and spread.
  * ==============================================
- * @copyright Copyright (c) 2017 重庆路威科技发展有限公司
- * @link http://www.igong.com
- * @author Hein Lee <heretreeli@gmail.com>
+ * @author HiiLee <heretreeli@gmail.com>
  */
 
 namespace hiilee\coolq\msg;
@@ -31,6 +29,7 @@ class CoolQMsg extends Msg
     public function __construct(array $rec)
     {
         $this->setMsg($rec);
+        $this->createTime = time();
     }
 
     public function setMsg(array $rec)
@@ -39,7 +38,7 @@ class CoolQMsg extends Msg
         $this->qqNo = (string)$rec['QQ'];
         $this->msg = urldecode($rec['Msg']);
         if (isset($rec['Group']) || isset($rec['Discuss'])) {
-            $this->groupNo = $rec['Group'] ?: $rec['Discuss'];
+            $this->groupNo = @$rec['Group'] ?: $rec['Discuss'];
         }
     }
 }
