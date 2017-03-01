@@ -932,4 +932,14 @@ class CoolQ
         }
         return false;
     }
+
+    /**
+     * 以CQ码分割消息
+     * @param $msg
+     * @return array
+     */
+    public static function explodeMsgByCqCode($msg)
+    {
+        return preg_split(CqCode::CQ_PATTERN, $msg);
+    }
 }
