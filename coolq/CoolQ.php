@@ -54,10 +54,24 @@ class CoolQ
         }
     }
 
+    /**
+     * 获取json字符串(1维键值对形式),应付返回结果多了异常符号
+     * @param $str
+     * @return bool|mixed
+     */
+    private static function getJsonString($str)
+    {
+        $pattern = '@{("\w+":(\d+|"[^"]*"))*}@';
+        if (preg_match($pattern, $str)) {
+            return preg_replace($pattern, '$0', $str);
+        }
+        return false;
+    }
+
     public function SendData($text)
     {
         $Get = $this->WebSocketClient->sendData($text);
-        return $Get;
+        return self::getJsonString($Get) ?: $Get;
     }
 
     /**
@@ -868,6 +882,7 @@ class CoolQ
      * 发送qq消息
      * @param QQMsg $msgObj
      * @return mixed
+     * @throws \Exception
      */
     public static function sendQqMsg(QQMsg $msgObj)
     {

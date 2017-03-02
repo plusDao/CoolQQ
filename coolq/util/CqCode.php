@@ -24,8 +24,8 @@ class CqCode
     /** CQ码正则匹配表达式 */
     const CQ_PATTERN = '@\[CQ:(\w+),\w+=(\w+(\.\w+)?)\]@';
 
-    /** @var  CQ码类型 */
+    /** @var string CQ码类型 */
     public $type;
-    /** @var  CQ码值 */
+    /** @var string CQ码值 */
     public $value;
 }
