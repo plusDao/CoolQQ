@@ -71,7 +71,7 @@ class CoolQ
     public function SendData($text)
     {
         $Get = $this->WebSocketClient->sendData($text);
-        return self::getJsonString($Get) ?: $Get;
+        return $Get;
     }
 
     /**
