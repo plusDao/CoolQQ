@@ -29,7 +29,12 @@ class WebSocketClient
         fwrite($this->_Socket, $this->encode($data));
         $wsData = fread($this->_Socket, 8192);
         $retData = trim($wsData, chr(0) . chr(255));
-        return trim(substr($retData, stripos($retData, "\x01") + 1));
+        $indexSOH = stripos($retData, "\x01");
+        if ($indexSOH !== false) {
+            return trim(substr($retData, $indexSOH + 1));
+        } else {
+            return $retData;
+        }
     }
 
     private function encode($data)
