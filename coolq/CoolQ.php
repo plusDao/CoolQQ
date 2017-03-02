@@ -71,6 +71,7 @@ class CoolQ
     public function SendData($text)
     {
         $Get = $this->WebSocketClient->sendData($text);
+        $Get = $Get = preg_replace('@.*(\{[^\}]+\}).*@', "$1", $Get);
         return $Get;
     }
 
